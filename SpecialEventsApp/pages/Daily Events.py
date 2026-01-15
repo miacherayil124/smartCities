@@ -9,7 +9,7 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 
-df = pd.read_parquet("C:/Users/mirian.cherayil/DataAnalysis/smartCities/SpecialEventsApp/events_geocoded.parquet")
+df = pd.read_parquet("c:\Users\mirian.cherayil\DataAnalysis\smartCities\SpecialEventsApp\pages\..\events_geocoded.parquet")
 
 st.set_page_config(
     page_title="Daily events in Philadelphia, 2023–2025",
