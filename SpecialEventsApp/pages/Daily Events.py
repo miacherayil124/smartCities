@@ -64,6 +64,7 @@ fig = px.scatter_map(
     hover_data=["address", "startDate", "endDate"],
     zoom=10,
     height=500,
+    size=10
 )
 
 
