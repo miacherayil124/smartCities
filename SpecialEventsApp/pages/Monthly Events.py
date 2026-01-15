@@ -10,10 +10,26 @@ import pandas as pd
 import geopandas as gpd
 import plotly.graph_objects as go
 import calendar
+import os
+
+# get directory of Montly Events.py
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# go up one level since data file is outside of pages folder
+repo_root = os.path.abspath(os.path.join(current_dir, ".."))
+
+# building full path
+parquet_file = os.path.join(repo_root, "events_geocoded.parquet")
+boundary_file = os.path.join(repo_root, "City_Limits.geojson")  
+
+# read geocoded events and philadelphia boundary file
+df = pd.read_parquet(parquet_file)
+gdf = gpd.read_file(boundary_file)
+
 
 # working with geocoded events
-df = pd.read_parquet("c:\Users\mirian.cherayil\DataAnalysis\smartCities\SpecialEventsApp\pages\..\events_geocoded.parquet")
-gdf = gpd.read_file("c:\Users\mirian.cherayil\DataAnalysis\smartCities\SpecialEventsApp\pages\..\City_Limits.geojson")
+#df = pd.read_parquet("c:\Users\mirian.cherayil\DataAnalysis\smartCities\SpecialEventsApp\pages\..\events_geocoded.parquet")
+#gdf = gpd.read_file("c:\Users\mirian.cherayil\DataAnalysis\smartCities\SpecialEventsApp\pages\..\City_Limits.geojson")
 
 # reading in Philadelphia boundary
 phil_boundary = gdf.__geo_interface__
