@@ -163,10 +163,13 @@ if selected_months:
     cols_per_row = 3
 
     for i in range(0, len(selected_months), cols_per_row):
+        # extracting months from selected_months list that will go in each row
         row_periods = selected_months[i : i + cols_per_row]
+        # creating streamlit column for each selected month
         cols = st.columns(len(row_periods))
 
         for col, period in zip(cols, row_periods):
+            # get the year and month for each selected month/s
             year = period.year
             month = period.month
 
@@ -182,10 +185,11 @@ if selected_months:
                 col.info(f"No events in {month_start.strftime('%B %Y')}")
                 continue
 
-            # Count events per day
+            # get all dates in selected month/s
             all_days = pd.date_range(month_start, month_end, freq="D")
 
             daily_counts = []
+            # gets number of events happening each day
             for d in all_days:
                 count = (
                     (month_events["startDate"] <= d) &
@@ -224,13 +228,14 @@ if selected_months:
 
             # show exact date when hovering over a cell
             fig_cal.update_traces(
-                hovertemplate=
-                    "<b>%{customdata}</b><br>" +
-                    "Events: %{z}<extra></extra>",
+                hovertemplate=(
+                    "<b>%{customdata[0]}</b><br>" + 
+                    "Number of events: %{customdata[1]}<extra></extra>"
+    ),
                 customdata=cal_df.pivot(
                     index="week",
                     columns="weekday",
-                    values="date_str"
+                    values=["date_str", "count"],
                 ).values
             )       
 
