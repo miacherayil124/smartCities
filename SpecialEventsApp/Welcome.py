@@ -15,7 +15,7 @@ st.markdown(
     
     **Daily Events page** *(see sidebar)*  
     - Displays point-level map data for events that took place on a **selected date**
-    - Allows users to choose any date within the **2023–2025** time period
+    - Allows users to choose any date within the **2023–2025 July** time period
     - Shows a table listing:
         - Event names  
         - Event dates  

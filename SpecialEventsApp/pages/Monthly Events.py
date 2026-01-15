@@ -136,7 +136,8 @@ if selected_months:
                 radius=35,
                 colorscale="blues",
                 showscale=True,
-                #name=f"Attendance heatmap ({', '.join(map(str, selected_months))})"
+                customdata=heat_data["attendance_clean"].values,
+                hovertemplate="Expected attendance: %{customdata}<extra></extra>"
             )
         )  
     else:
