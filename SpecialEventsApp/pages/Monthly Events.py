@@ -229,9 +229,9 @@ if selected_months:
             # show exact date when hovering over a cell
             fig_cal.update_traces(
                 hovertemplate=(
-                    "<b>%{customdata[0]}</b><br>" + 
+                    "Date: %{customdata[0]}</b><br>" + 
                     "Number of events: %{customdata[1]}<extra></extra>"
-    ),
+                ),
                 customdata=cal_df.pivot(
                     index="week",
                     columns="weekday",
