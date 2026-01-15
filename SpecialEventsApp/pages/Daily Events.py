@@ -51,6 +51,13 @@ filtered = df[
     & (df["endDate"] >= selected_date)
 ].dropna(subset=["latitude", "longitude"])
 
+st.markdown(
+    """
+    :red[_Note: The map and table below show events that have valid lat/long attributes. They do not
+    show events that have a location like "In the vicinity of.... "_]
+    """
+     )
+
 st.write(
     f"Showing {len(filtered)} event(s) on {selected_date.date().strftime('%B %d, %Y')}"
 )
