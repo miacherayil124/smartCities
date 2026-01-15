@@ -1,4 +1,4 @@
-# Author: Miriam Cherayil <miriam.cherayil@phila.gov>
+# Author: Mia Cherayil <miriam.cherayil@phila.gov>
 # Date: 01-12-2026
 # Description: This script reads in a list of geocoded events taking place in Philadelphia between 2023
 # and 2025, and creates a heatmap of all the events occuring in month/months selected by the user. 

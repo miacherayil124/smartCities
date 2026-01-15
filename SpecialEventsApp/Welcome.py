@@ -6,7 +6,7 @@ st.set_page_config(
 )
 
 st.title("Analysis of Special Events in Philadelphia, 2023-2025")
-st.caption("Created by: Miriam Cherayil, SmartCityPHL")
+st.caption("Created by: Mia Cherayil, SmartCityPHL")
 st.caption("Contact: miriam.cherayil@phila.gov")
 st.subheader("About this app")
 st.markdown(
