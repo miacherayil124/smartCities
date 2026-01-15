@@ -26,11 +26,6 @@ boundary_file = os.path.join(repo_root, "City_Limits.geojson")
 df = pd.read_parquet(parquet_file)
 gdf = gpd.read_file(boundary_file)
 
-
-# working with geocoded events
-#df = pd.read_parquet("c:\Users\mirian.cherayil\DataAnalysis\smartCities\SpecialEventsApp\pages\..\events_geocoded.parquet")
-#gdf = gpd.read_file("c:\Users\mirian.cherayil\DataAnalysis\smartCities\SpecialEventsApp\pages\..\City_Limits.geojson")
-
 # reading in Philadelphia boundary
 phil_boundary = gdf.__geo_interface__
 
@@ -229,13 +224,13 @@ if selected_months:
             # show exact date when hovering over a cell
             fig_cal.update_traces(
                 hovertemplate=(
-                    "Date: %{customdata[0]}</b><br>" + 
-                    "Number of events: %{customdata[1]}<extra></extra>"
+                    "Date: %{customdata}</b><br>" + 
+                    "Number of events: %{z}<extra></extra>"
                 ),
                 customdata=cal_df.pivot(
                     index="week",
                     columns="weekday",
-                    values=["date_str", "count"],
+                    values="date_str",
                 ).values
             )       
 
@@ -263,6 +258,7 @@ if selected_months:
             )
 
             col.plotly_chart(fig_cal, use_container_width=True)
+           
 
 elif (selected_months == 0):
     st.info("Select one or more months to view calendar heatmaps.")
