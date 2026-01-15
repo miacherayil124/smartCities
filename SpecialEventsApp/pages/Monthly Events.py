@@ -12,8 +12,8 @@ import plotly.graph_objects as go
 import calendar
 
 # working with geocoded events
-df = pd.read_parquet("C:/Users/mirian.cherayil/DataAnalysis/SpecialEventsApp/events_geocoded.parquet")
-gdf = gpd.read_file("C:/Users/mirian.cherayil/DataAnalysis/SpecialEventsApp/City_Limits.geojson")
+df = pd.read_parquet("C:/Users/mirian.cherayil/DataAnalysis/smartCities/SpecialEventsApp/events_geocoded.parquet")
+gdf = gpd.read_file("C:/Users/mirian.cherayil/DataAnalysis/smartCities/SpecialEventsApp/City_Limits.geojson")
 
 # reading in Philadelphia boundary
 phil_boundary = gdf.__geo_interface__
