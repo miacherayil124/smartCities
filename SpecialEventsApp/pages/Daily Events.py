@@ -8,8 +8,21 @@ import numpy as np
 import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
+import os
 
-df = pd.read_parquet("c:\Users\mirian.cherayil\DataAnalysis\smartCities\SpecialEventsApp\pages\..\events_geocoded.parquet")
+# get directory of Daily Events.py
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# go up one level since data file is outside of pages folder
+repo_root = os.path.abspath(os.path.join(current_dir, ".."))
+
+# building full path
+parquet_file = os.path.join(repo_root, "events_geocoded.parquet")  
+
+# read geocoded events
+df = pd.read_parquet(parquet_file)
+
+#df = pd.read_parquet("c:\Users\mirian.cherayil\DataAnalysis\smartCities\SpecialEventsApp\pages\..\events_geocoded.parquet")
 
 st.set_page_config(
     page_title="Daily events in Philadelphia, 2023–2025",
